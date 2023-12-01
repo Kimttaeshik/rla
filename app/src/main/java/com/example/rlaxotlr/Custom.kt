@@ -4,4 +4,4 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-class Data(val weight: Int, val num: Int): Parcelable
+class Custom(val custom_ex :ArrayList<Exercise_kind>, val custom_name: String): Parcelable

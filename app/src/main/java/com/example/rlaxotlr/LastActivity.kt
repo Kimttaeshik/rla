@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 
-class MainActivity : AppCompatActivity() {
+class LastActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_last)
 
 
         val btn: Button = findViewById(R.id.btn)
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         var intent:Intent=getIntent()
-        var kame = intent.getParcelableExtra("운동", Exercise_kind::class.java)
+        var kame = intent.getParcelableExtra("커스텀", Custom::class.java)
 //        if (intent.hasExtra("세트")) {
 //            var kname = intent.getParcelableExtra("세트")
 //            /* "nameKey"라는 이름의 key에 저장된 값이 있다면
@@ -31,31 +31,33 @@ class MainActivity : AppCompatActivity() {
 
         val textView : TextView = findViewById(R.id.textView)
         val textView1 : TextView = findViewById(R.id.textView1)
+        val textView2 : TextView = findViewById(R.id.textView2)
+        val textView3 : TextView = findViewById(R.id.textView3)
+        val textView4 : TextView = findViewById(R.id.textView4)
+        val textView5 : TextView = findViewById(R.id.textView5)
 
         if (kame != null) {
-            textView.text=kame.Sets.get(0).num.toString()
+            textView.text=kame.custom_ex.get(0).Sets.get(0).weight.toString()
         }
         if (kame != null) {
-            textView1.text=kame.exercise_name.toString()
+            textView2.text=kame.custom_ex.get(0).Sets.get(0).num.toString()
         }
-
-        var ame  = ArrayList<Exercise_kind>()
         if (kame != null) {
-            ame.add(kame)
+            textView3.text=kame.custom_ex.get(0).Sets.get(0).set_num.toString()
         }
-        val custoname : String = "커스텀1"
-        val btn_c: Button = findViewById(R.id.btn_c)
-        btn_c.setOnClickListener {
-            val nextintent = Intent(this, LastActivity::class.java)
-            nextintent.putExtra("커스텀", Custom(custom_ex = ame, custom_name = custoname))
-//            nextintent.putExtra("number", 12345)
+        if (kame != null) {
+            textView4.text=kame.custom_ex.get(0).exercise_name.toString()
+        }
+        if (kame != null) {
+            textView5.text=kame.custom_ex.get(0).exercise_name.toString()
+        }
 
 
-            startActivity(nextintent)
-//            setResult(99, nextintent)
-//
-//            finish()
+        if (kame != null) {
+            textView1.text=kame.custom_name.toString()
         }
+
+
 
     }
 }

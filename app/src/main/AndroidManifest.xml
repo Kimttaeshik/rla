@@ -23,8 +23,13 @@
         </activity>
 
         <activity
-            android:name=".SubActivity"
-            android:exported="true">
+            android:name=".SubActivity">
+        </activity>
+        <activity
+            android:name=".Sub2Activity">
+        </activity>
+        <activity
+            android:name=".LastActivity">
         </activity>
     </application>
 
